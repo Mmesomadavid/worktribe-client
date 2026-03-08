@@ -2,21 +2,24 @@ import heroImage from "../../assets/Obscured_Identity.png";
 import { heroData } from "../../constants";
 import { Input } from "../ui/input";
 import { Separator } from "../ui/separator";
+import { Card } from "../ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
+import { Plus } from "lucide-react";
 import { useState } from "react";
-import { motion} from "framer-motion";
-import type {Variants} from 'framer-motion'
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 
 const Hero = () => {
   const { sectionTitle, sectionTitle2, decoTitle, sectionText } = heroData;
 
   const [filter, setFilter] = useState("Freelance");
   const [query, setQuery] = useState("");
-  
+
   const containerVariants: Variants = {
     hidden: {},
     visible: {
       transition: {
-      staggerChildren: 0.15,
+        staggerChildren: 0.15,
       },
     },
   };
@@ -36,7 +39,7 @@ const Hero = () => {
   return (
     <section className="py-6 sm:py-10 flex justify-center">
       {/* Hero Container */}
-      <div className="w-full md:container relative rounded-none md:rounded-[3rem] overflow-hidden md:shadow-2xl min-h-[620px] md:min-h-[650px]">
+      <div className="w-full md:container relative rounded-none md:rounded-[3rem] overflow-hidden md:shadow-2xl min-h-[520px] md:min-h-[650px]">
 
         {/* Background Image */}
         <div
@@ -114,6 +117,47 @@ const Hero = () => {
             </select>
           </motion.div>
         </motion.div>
+
+        {/* Floating Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="absolute bottom-8 right-6 md:right-10 hidden sm:block"
+        >
+          <Card className="flex items-center gap-4 px-4 py-3 bg-white/10 backdrop-blur-lg border-white/20 rounded-xl">
+
+            {/* Avatars */}
+            <div className="flex -space-x-3">
+              <Avatar className="border-2 border-white">
+                <AvatarImage src="https://i.pravatar.cc/100?img=1" />
+                <AvatarFallback>A</AvatarFallback>
+              </Avatar>
+
+              <Avatar className="border-2 border-white">
+                <AvatarImage src="https://i.pravatar.cc/100?img=2" />
+                <AvatarFallback>B</AvatarFallback>
+              </Avatar>
+
+              <Avatar className="border-2 border-white">
+                <AvatarImage src="https://i.pravatar.cc/100?img=3" />
+                <AvatarFallback>C</AvatarFallback>
+              </Avatar>
+
+              {/* Plus Avatar */}
+              <Avatar className="border-2 border-white bg-green-500 text-white flex items-center justify-center">
+                <Plus size={16} />
+              </Avatar>
+            </div>
+
+            {/* Text */}
+            <p className="text-sm text-white font-medium">
+              <span className="font-semibold">30K+</span> happy freelancers & clients
+            </p>
+
+          </Card>
+        </motion.div>
+
       </div>
     </section>
   );
