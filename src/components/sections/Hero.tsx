@@ -36,7 +36,7 @@ const Hero = () => {
   return (
     <section className="py-6 sm:py-10 flex justify-center">
       {/* Hero Container */}
-      <div className="container relative rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-2xl min-h-[620px] md:min-h-[650px]">
+      <div className="w-full md:container relative rounded-none md:rounded-[3rem] overflow-hidden md:shadow-2xl min-h-[620px] md:min-h-[650px]">
 
         {/* Background Image */}
         <div
@@ -57,7 +57,7 @@ const Hero = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="relative z-10 flex flex-col justify-end h-full px-6 sm:px-10 md:px-12 pb-10 md:pb-12 text-left"
+          className="relative z-10 flex flex-col justify-end h-full w-full px-5 sm:px-8 md:px-12 pb-10 md:pb-12 text-left"
         >
           {/* Subtitle */}
           <motion.p
@@ -94,7 +94,7 @@ const Hero = () => {
               placeholder="Search jobs..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="flex-1 h-full px-5 text-white bg-transparent focus:ring-0 focus:border-transparent text-sm sm:text-base placeholder:text-white"
+              className="flex-1 h-full px-5 text-white caret-white bg-transparent text-sm sm:text-base border-none outline-none focus:outline-none focus:ring-0 focus:border-none focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-white placeholder:opacity-100"
             />
 
             <Separator
@@ -106,7 +106,7 @@ const Hero = () => {
             <select
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
-              className="h-full px-3 sm:px-4 bg-transparent text-white font-medium outline-none text-sm sm:text-base"
+              className="h-full px-3 sm:px-4 bg-white text-black font-medium outline-none text-sm sm:text-base"
             >
               <option className="text-black">Freelance</option>
               <option className="text-black">Hiring</option>
