@@ -38,7 +38,7 @@ const Insight = () => {
             />
             <Button
               onClick={handleSend}
-              className="absolute bottom-2 right-2 text-white px-4 py-2 h-12 rounded-full bg-green-400 hover:bg-green-500"
+              className="absolute bottom-2 right-2 text-white px-4 py-2 h-12 rounded-full"
             >
               <Send />
             </Button>
