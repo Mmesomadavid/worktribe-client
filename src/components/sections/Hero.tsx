@@ -1,73 +1,119 @@
-import heroImage from "../../assets/Obscured_Identity.png"; // local image
-import { heroData } from "../../constants"; // import your heroData
-import { Input } from "../ui/input"; // shadcn/ui input
-import { Separator } from "../ui/separator"; // shadcn/ui separator
+import heroImage from "../../assets/Obscured_Identity.png";
+import { heroData } from "../../constants";
+import { Input } from "../ui/input";
+import { Separator } from "../ui/separator";
 import { useState } from "react";
+import { motion} from "framer-motion";
+import type {Variants} from 'framer-motion'
 
 const Hero = () => {
   const { sectionTitle, sectionTitle2, decoTitle, sectionText } = heroData;
+
   const [filter, setFilter] = useState("Freelance");
   const [query, setQuery] = useState("");
+  
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+      staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
 
   return (
-    <section className="py-10 flex justify-center">
+    <section className="py-6 sm:py-10 flex justify-center">
       {/* Hero Container */}
-      <div className="container relative rounded-[3rem] overflow-hidden shadow-2xl h-[700px] md:h-[600px]">
+      <div className="container relative rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-2xl min-h-[620px] md:min-h-[650px]">
+
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroImage})` }}
-        ></div>
+        />
 
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-black/40" />
 
-        {/* Green Gradient Bottom Left */}
+        {/* Green Gradient Blend */}
         <div className="absolute bottom-0 left-0 w-full h-full pointer-events-none">
-          <div className="absolute bottom-0 left-0 w-2/3 h-2/3 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(34,197,94,0.6),_transparent_70%)]"></div>
+          <div className="absolute bottom-0 left-0 w-[70%] h-[70%] bg-[radial-gradient(ellipse_at_bottom_left,_rgba(34,197,94,0.55),_transparent_70%)]"></div>
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 flex flex-col justify-end h-full p-12 text-left">
-          {/* Decorative Title */}
-          <p className="text-green-400 font-semibold uppercase mb-2">
-            {decoTitle}
-          </p>
-
-          {/* Main Section Title */}
-          <h1 className="text-5xl md:text-6xl font-medium text-white mb-6 max-w-3xl">
-            {sectionTitle}
-            <br />
-            {sectionTitle2}
-          </h1>
-
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="relative z-10 flex flex-col justify-end h-full px-6 sm:px-10 md:px-12 pb-10 md:pb-12 text-left"
+        >
           {/* Subtitle */}
-          <p className="text-gray-200 text-xl md:text-2xl mb-8 max-w-4xl">
-            {sectionText}
-          </p>
+          <motion.p
+            variants={itemVariants}
+            className="text-green-400 font-semibold uppercase mb-2 text-sm tracking-wider"
+          >
+            {decoTitle}
+          </motion.p>
 
-          {/* Search Input with Filter on Right */}
-          <div className="flex max-w-3xl w-full h-14 rounded-full overflow-hidden bg-white/10 focus-within:bg-white/20">
+          {/* Main Title */}
+          <motion.h1
+            variants={itemVariants}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-5 max-w-4xl leading-tight"
+          >
+            {sectionTitle}
+            <br className="hidden sm:block" />
+            {sectionTitle2}
+          </motion.h1>
+
+          {/* Description */}
+          <motion.p
+            variants={itemVariants}
+            className="text-gray-200 text-base sm:text-lg md:text-xl mb-8 max-w-3xl"
+          >
+            {sectionText}
+          </motion.p>
+
+          {/* Search Input */}
+          <motion.div
+            variants={itemVariants}
+            className="flex max-w-3xl w-full h-12 sm:h-14 rounded-full overflow-hidden bg-white/10 backdrop-blur-md focus-within:bg-white/20"
+          >
             <Input
               placeholder="Search jobs..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="flex-1 h-full px-6 text-white placeholder-white bg-transparent focus:ring-0 focus:border-transparent"
+              className="flex-1 h-full px-5 text-white placeholder-white bg-transparent focus:ring-0 focus:border-transparent text-sm sm:text-base"
             />
 
-            <Separator orientation="vertical" className="h-10 my-auto bg-white/30" />
+            <Separator
+              orientation="vertical"
+              className="h-8 sm:h-10 my-auto bg-white/30"
+            />
 
+            {/* Filter */}
             <select
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
-              className="h-full px-4 bg-green-600 text-white font-semibold outline-none"
+              className="h-full px-3 sm:px-4 bg-white text-black font-medium outline-none text-sm sm:text-base"
             >
               <option>Freelance</option>
               <option>Hiring</option>
               <option>Job Seeker</option>
             </select>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
