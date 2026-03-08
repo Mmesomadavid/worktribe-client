@@ -94,7 +94,7 @@ const Hero = () => {
               placeholder="Search jobs..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="flex-1 h-full px-5 text-white placeholder-white bg-transparent focus:ring-0 focus:border-transparent text-sm sm:text-base"
+              className="flex-1 h-full px-5 text-white bg-transparent focus:ring-0 focus:border-transparent text-sm sm:text-base placeholder:text-white"
             />
 
             <Separator
@@ -106,11 +106,11 @@ const Hero = () => {
             <select
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
-              className="h-full px-3 sm:px-4 bg-white text-black font-medium outline-none text-sm sm:text-base"
+              className="h-full px-3 sm:px-4 bg-transparent text-white font-medium outline-none text-sm sm:text-base"
             >
-              <option>Freelance</option>
-              <option>Hiring</option>
-              <option>Job Seeker</option>
+              <option className="text-black">Freelance</option>
+              <option className="text-black">Hiring</option>
+              <option className="text-black">Job Seeker</option>
             </select>
           </motion.div>
         </motion.div>
