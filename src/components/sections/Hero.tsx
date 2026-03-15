@@ -69,13 +69,9 @@ const Hero = () => {
             variants={itemVariants}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-6 max-w-4xl leading-[1.1] tracking-tight"
           >
-            Apply to 100+
-            <br className="sm:hidden" />
-            Jobs
+            Apply to 100+ Jobs
             <br />
-            In One Click
-            <br className="sm:hidden" />
-            With AI
+            In One Click With AI
           </motion.h1>
 
           {/* Description */}

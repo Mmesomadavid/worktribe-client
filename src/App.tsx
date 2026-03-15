@@ -9,7 +9,6 @@ import Header from "./components/sections/Header";
 import Hero from "./components/sections/Hero";
 import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
-import Insight from "./components/sections/Insight";
 
 const Home = () => {
   return (
@@ -18,7 +17,6 @@ const Home = () => {
 
       <main>
         <Hero />
-        <Insight />
       </main>
     </div>
   );
