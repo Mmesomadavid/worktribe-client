@@ -1,17 +1,11 @@
 import heroImage from "../../assets/Obscured_Identity.png";
-import { heroData } from "../../constants";
 import { Input } from "../ui/input";
 import { Separator } from "../ui/separator";
-import { Card } from "../ui/card";
-import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
-import { Plus } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 
 const Hero = () => {
-  const { sectionTitle, sectionTitle2, decoTitle, sectionText } = heroData;
-
   const [filter, setFilter] = useState("Freelance");
   const [query, setQuery] = useState("");
 
@@ -37,7 +31,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="py-6 sm:py-10 flex justify-center">
+    <section className="py-2 sm:py-2 flex justify-center">
       {/* Hero Container */}
       <div className="w-full md:container relative rounded-none md:rounded-[3rem] overflow-hidden md:shadow-2xl min-h-[520px] md:min-h-[650px]">
 
@@ -48,7 +42,7 @@ const Hero = () => {
         />
 
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/50" />
 
         {/* Green Gradient Blend */}
         <div className="absolute bottom-0 left-0 w-full h-full pointer-events-none">
@@ -65,39 +59,45 @@ const Hero = () => {
           {/* Subtitle */}
           <motion.p
             variants={itemVariants}
-            className="text-green-400 font-semibold uppercase mb-2 text-sm tracking-wider"
+            className="text-green-400 font-semibold uppercase mb-3 text-sm tracking-wider"
           >
-            {decoTitle}
+            AI-Powered Job Marketplace
           </motion.p>
 
           {/* Main Title */}
           <motion.h1
             variants={itemVariants}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-5 max-w-4xl leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-6 max-w-4xl leading-[1.1] tracking-tight"
           >
-            {sectionTitle}
-            <br className="hidden sm:block" />
-            {sectionTitle2}
+            Apply to 100+
+            <br className="sm:hidden" />
+            Jobs
+            <br />
+            In One Click
+            <br className="sm:hidden" />
+            With AI
           </motion.h1>
 
           {/* Description */}
           <motion.p
             variants={itemVariants}
-            className="text-gray-200 text-base sm:text-lg md:text-xl mb-8 max-w-3xl"
+            className="text-gray-200 text-base sm:text-lg md:text-xl mb-8 max-w-2xl"
           >
-            {sectionText}
+            WorkTribe’s intelligent matching connects top talent with the right
+            opportunities. Discover gigs tailored to your skills, apply instantly,
+            and get hired faster.
           </motion.p>
 
           {/* Search Input */}
           <motion.div
             variants={itemVariants}
-            className="flex max-w-3xl w-full h-12 sm:h-14 rounded-full overflow-hidden bg-white/10 backdrop-blur-md focus-within:bg-white/20"
+            className="flex max-w-3xl w-full h-12 sm:h-14 rounded-full overflow-hidden bg-white/10 backdrop-blur-md focus-within:bg-white/20 border border-white/20"
           >
             <Input
-              placeholder="Search jobs..."
+              placeholder="Search jobs, gigs, or skills..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="flex-1 h-full px-5 text-white caret-white bg-transparent text-sm sm:text-base border-none outline-none focus:outline-none focus:ring-0 focus:border-none focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-white placeholder:opacity-100"
+              className="flex-1 h-full px-5 text-white caret-white bg-transparent text-sm sm:text-base border-none outline-none focus-visible:ring-0 placeholder:text-white/80"
             />
 
             <Separator
@@ -109,55 +109,22 @@ const Hero = () => {
             <select
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
-              className="h-full px-3 sm:px-4 bg-white text-black font-medium outline-none text-sm sm:text-base"
+              className="h-full px-4 bg-white text-black font-medium outline-none text-sm sm:text-base"
             >
-              <option className="text-black">Freelance</option>
-              <option className="text-black">Hiring</option>
-              <option className="text-black">Job Seeker</option>
+              <option value="Freelance">Freelance</option>
+              <option value="Jobs">Jobs</option>
+              <option value="Talent">Talent</option>
             </select>
           </motion.div>
+
+          {/* Trust line */}
+          <motion.p
+            variants={itemVariants}
+            className="text-white/80 text-sm mt-4"
+          >
+            Join thousands of freelancers and companies finding work on WorkTribe
+          </motion.p>
         </motion.div>
-
-        {/* Floating Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          className="absolute bottom-8 right-6 md:right-10 hidden sm:block"
-        >
-          <Card className="flex items-center gap-4 px-4 py-3 bg-white/10 backdrop-blur-lg border-white/20 rounded-xl">
-
-            {/* Avatars */}
-            <div className="flex -space-x-3">
-              <Avatar className="border-2 border-white">
-                <AvatarImage src="https://i.pravatar.cc/100?img=1" />
-                <AvatarFallback>A</AvatarFallback>
-              </Avatar>
-
-              <Avatar className="border-2 border-white">
-                <AvatarImage src="https://i.pravatar.cc/100?img=2" />
-                <AvatarFallback>B</AvatarFallback>
-              </Avatar>
-
-              <Avatar className="border-2 border-white">
-                <AvatarImage src="https://i.pravatar.cc/100?img=3" />
-                <AvatarFallback>C</AvatarFallback>
-              </Avatar>
-
-              {/* Plus Avatar */}
-              <Avatar className="border-2 border-white bg-green-500 text-white flex items-center justify-center">
-                <Plus size={16} />
-              </Avatar>
-            </div>
-
-            {/* Text */}
-            <p className="text-sm text-white font-medium">
-              <span className="font-semibold">30K+</span> happy freelancers & clients
-            </p>
-
-          </Card>
-        </motion.div>
-
       </div>
     </section>
   );
