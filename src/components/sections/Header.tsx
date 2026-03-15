@@ -27,7 +27,7 @@ import { Link } from "react-router-dom";
 
 // Constants
 import { navMenu } from "../../constants";
-import Logo from "../logo";
+import Logo from "../../components/logo";
 
 const Header = () => {
   return (
