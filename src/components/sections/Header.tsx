@@ -27,12 +27,13 @@ import { Link } from "react-router-dom";
 
 // Constants
 import { navMenu } from "../../constants";
+import Logo from "../logo";
 
 const Header = () => {
   return (
     <header className='h-16 grid grid-cols-1 items-center md:h-20 lg:h-24'>
       <div className="container flex justify-between lg:grid lg:grid-cols-[1fr,3fr,1fr]">
-        {/* <Logo variant="icon"/> */}
+        <Logo />
         
         <NavigationMenu className="max-lg:hidden mx-auto">
           <NavigationMenuList>
