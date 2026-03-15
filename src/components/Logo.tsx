@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const Logo = () => {
+const logo = () => {
   return (
     <div className="flex items-center">
       <motion.h1
@@ -18,4 +18,4 @@ const Logo = () => {
   );
 };
 
-export default Logo;
+export default logo;
