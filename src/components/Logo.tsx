@@ -9,7 +9,10 @@ const Logo = () => {
         transition={{ duration: 0.4 }}
         className="text-2xl font-bold tracking-tight"
       >
-        <span className="text-slate-900 dark:text-white uppercase">WorkTribe</span>
+        <span className="text-slate-900 dark:text-white Capitlize">WorkTribe</span>
+        <span className="text-lime-400 ml-2 text-5xl">
+          .
+        </span>
       </motion.h1>
     </div>
   );
