@@ -56,7 +56,13 @@ const Hero = () => {
                 style={{ opacity: 0 }}
               >
                 Find{' '}
-                <span className="inline-flex items-center gap-3 border-2 border-lime-400 rounded-full px-4 sm:px-6 py-1.5 sm:py-2 mx-1 sm:mx-2">
+                <span className="inline-flex items-center gap-2 sm:gap-3
+                border border-lime-400
+                rounded-full
+                px-3 sm:px-6
+                py-1 sm:py-2
+                mx-1 sm:mx-2
+                text-sm sm:text-base md:text-lg">
                   <Search className="w-5 h-5 sm:w-6 sm:h-6 text-lime-400" /> Top Talents
                 </span>{' '}
                 In{' '}
@@ -77,7 +83,7 @@ const Hero = () => {
                     bg-white/10
                       px-4 py-3
                       bg backdrop-blur-lg  border-none text-white
-                      shadow-lg shadow-black/20 w-60 sm:w-74 md:w-80 p-3 h-12 focus:outline-none focus:ring-2 focus:ring-indigo-400/40 focus:border-white/30
+                      shadow-lg shadow-black/20 w-60 sm:w-74 md:w-80 p-3 h-12 focus:outline-none focus:ring-2 focus:ring-none focus:border-
                       text-sm sm:text-base font-normal
                       "/>
 
