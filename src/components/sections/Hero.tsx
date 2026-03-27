@@ -62,7 +62,7 @@ const Hero = () => {
                 px-3 sm:px-6
                 py-1 sm:py-2
                 mx-1 sm:mx-2
-                text-sm sm:text-base md:text-lg">
+                text-3xl sm:text-3xl">
                   <Search className="w-5 h-5 sm:w-6 sm:h-6 text-lime-400" /> Top Talents
                 </span>{' '}
                 In{' '}
