@@ -27,7 +27,7 @@ import { Link } from "react-router-dom";
 
 // Constants
 import { navMenu } from "../../constants";
-import Logo from "../../components/logo";
+import Logo from "../../components/Logo";
 
 const Header = () => {
   return (
@@ -78,7 +78,7 @@ const Header = () => {
             <Link to="/sign-in">Sign In</Link>
           </Button>
 
-          <Button>Get Started with Worktribe</Button>
+          <Button>Post a Job</Button>
         </div>
         <Popover>
           <PopoverTrigger asChild>

@@ -10,9 +10,6 @@ const Logo = () => {
         className="text-2xl font-bold tracking-tight"
       >
         <span className="text-slate-900 dark:text-white uppercase">WorkTribe</span>
-        <span className="text-green-600">
-          .Jobs
-        </span>
       </motion.h1>
     </div>
   );
