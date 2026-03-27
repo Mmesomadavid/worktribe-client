@@ -139,7 +139,7 @@ const Login = () => {
       {/* Footer copyright */}
       <div ref={footerRef} style={{ opacity: 0 }}>
         <p className="text-xs text-gray-700 text-center">
-          &copy; {new Date().getFullYear()} YourBrand. All rights reserved.
+          &copy; {new Date().getFullYear()} WorkTribe. All rights reserved.
         </p>
       </div>
     </div>
