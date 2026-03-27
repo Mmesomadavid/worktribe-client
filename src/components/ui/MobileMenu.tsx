@@ -77,9 +77,11 @@ const MobileMenu = ({navMenu}: MobileMenuProps) => {
             </Link>
         </Button>
 
-        <Button  className="w-full">
-            Post a Job
-        </Button>
+        <Link to="/signup">
+            <Button  className="w-full">
+                Post a Job
+            </Button>
+        </Link>
       </div>
     </div>
   );

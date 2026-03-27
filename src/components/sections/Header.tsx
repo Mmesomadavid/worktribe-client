@@ -78,7 +78,11 @@ const Header = () => {
             <Link to="/sign-in">Sign In</Link>
           </Button>
 
-          <Button>Post a Job</Button>
+          <Link to="/signup">
+            <Button  className="w-full">
+              Post a Job
+            </Button>
+            </Link>
         </div>
         <Popover>
           <PopoverTrigger asChild>
