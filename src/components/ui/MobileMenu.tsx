@@ -78,7 +78,7 @@ const MobileMenu = ({navMenu}: MobileMenuProps) => {
         </Button>
 
         <Button  className="w-full">
-            Free Trial
+            Post a Job
         </Button>
       </div>
     </div>
